@@ -1,0 +1,11 @@
+                    <div class="row">
+                        <div class="btn-toolbar">
+                            <div class="btn-group">
+                                <button id="btn-point" class="btn btn-default">Point</button>
+                                <button id="btn-multi-point" class="btn btn-default">Multi Point</button>
+                                <button id="btn-freehand-polygon" class="btn btn-default">Polygon</button>
+                                <button id="btn-circle" class="btn btn-default">Circle</button>
+                            </div>
+                        </div>
+                    </div>
+
