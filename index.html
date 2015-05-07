@@ -52,13 +52,14 @@
              map.addLayer(layer1);
              */
 
-            $("#btn-point").on("click", activateTool);
-            $("#btn-multi-point").on("click", activateTool);
-            $("#btn-freehand-polygon").on("click", activateTool);
+            //$("#btn-point").on("click", activateTool);
+            //$("#btn-multi-point").on("click", activateTool);
+            //$("#btn-freehand-polygon").on("click", activateTool);
             $("#btn-circle").on("click", activateTool);
 
             function activateTool() {
-                var tool = $(this).text().toUpperCase().replace(/ /g, "_");
+                //var tool = $(this).text().toUpperCase().replace(/ /g, "_");
+                var tool = "CIRCLE";
                 toolbar.activate(Draw[tool]);
                 map.hideZoomSlider();
             }
@@ -118,16 +119,6 @@
                                 </select>
                             </div>
                         </form>
-                    </div>
-                    <div class="row">
-                        <div class="btn-toolbar">
-                            <div class="btn-group">
-                                <button id="btn-point" class="btn btn-default">Point</button>
-                                <button id="btn-multi-point" class="btn btn-default">Multi Point</button>
-                                <button id="btn-freehand-polygon" class="btn btn-default">Polygon</button>
-                                <button id="btn-circle" class="btn btn-default">Circle</button>
-                            </div>
-                        </div>
                     </div>
                 </div>
                 <div id="section-input-model-1">
@@ -208,9 +199,10 @@
                             </div>
                         </div>
                         <div class="form-group">
-                            <div class="col-sm-offset-2 col-sm-10">
-                                <button type="submit" class="btn btn-default">Run Model&nbsp;&nbsp;<span class="glyphicon glyphicon-play"></span></button>
-                                <button class="btn btn-default" title="Help">Help&nbsp;&nbsp;<span class="glyphicon glyphicon-question-sign"></span></button>
+                            <div class="col-sm-12">
+                                <button class="btn btn-default" type="button" id="btn-circle">Draw AOI&nbsp;&nbsp;<span class="glyphicon glyphicon-map-marker"></span></button>
+                                <button class="btn btn-default" type="button" onclick="runModel1();">Run Model&nbsp;&nbsp;<span class="glyphicon glyphicon-play"></span></button>
+                                <button class="btn btn-default" type="button" title="Help">Help&nbsp;&nbsp;<span class="glyphicon glyphicon-question-sign"></span></button>
                             </div>
                         </div>
                     </form>
@@ -293,9 +285,10 @@
                             </div>
                         </div>
                         <div class="form-group">
-                            <div class="col-sm-offset-2 col-sm-10">
-                                <button type="submit" class="btn btn-default">Run Model&nbsp;&nbsp;<span class="glyphicon glyphicon-play"></span></button>
-                                <button class="btn btn-default" title="Help">Help&nbsp;&nbsp;<span class="glyphicon glyphicon-question-sign"></span></button>
+                            <div class="col-sm-12">
+                                <button class="btn btn-default" type="button" id="btn-circle">Draw AOI&nbsp;&nbsp;<span class="glyphicon glyphicon-map-marker"></span></button>
+                                <button class="btn btn-default" type="button">Run Model&nbsp;&nbsp;<span class="glyphicon glyphicon-play"></span></button>
+                                <button class="btn btn-default" type="button" title="Help">Help&nbsp;&nbsp;<span class="glyphicon glyphicon-question-sign"></span></button>
                             </div>
                         </div>
                     </form>
@@ -378,9 +371,10 @@
                             </div>
                         </div>
                         <div class="form-group">
-                            <div class="col-sm-offset-2 col-sm-10">
-                                <button type="submit" class="btn btn-default">Run Model&nbsp;&nbsp;<span class="glyphicon glyphicon-play"></span></button>
-                                <button class="btn btn-default" title="Help">Help&nbsp;&nbsp;<span class="glyphicon glyphicon-question-sign"></span></button>
+                            <div class="col-sm-12">
+                                <button class="btn btn-default" type="button" id="btn-circle">Draw AOI&nbsp;&nbsp;<span class="glyphicon glyphicon-map-marker"></span></button>
+                                <button class="btn btn-default" type="button">Run Model&nbsp;&nbsp;<span class="glyphicon glyphicon-play"></span></button>
+                                <button class="btn btn-default" type="button" title="Help">Help&nbsp;&nbsp;<span class="glyphicon glyphicon-question-sign"></span></button>
                             </div>
                         </div>
                     </form>
@@ -438,9 +432,10 @@
                             </div>
                         </div>
                         <div class="form-group">
-                            <div class="col-sm-offset-2 col-sm-10">
-                                <button type="submit" class="btn btn-default">Run Model&nbsp;&nbsp;<span class="glyphicon glyphicon-play"></span></button>
-                                <button class="btn btn-default" title="Help">Help&nbsp;&nbsp;<span class="glyphicon glyphicon-question-sign"></span></button>
+                            <div class="col-sm-12">
+                                <button class="btn btn-default" type="button" id="btn-circle">Draw AOI&nbsp;&nbsp;<span class="glyphicon glyphicon-map-marker"></span></button>
+                                <button class="btn btn-default" type="button">Run Model&nbsp;&nbsp;<span class="glyphicon glyphicon-play"></span></button>
+                                <button class="btn btn-default" type="button" title="Help">Help&nbsp;&nbsp;<span class="glyphicon glyphicon-question-sign"></span></button>
                             </div>
                         </div>
                     </form>
@@ -482,11 +477,18 @@
                         </div>
                         <div class="form-group">
                             <div class="col-sm-offset-2 col-sm-10">
-                                <button type="submit" class="btn btn-default">Run Model&nbsp;&nbsp;<span class="glyphicon glyphicon-play"></span></button>
-                                <button class="btn btn-default" title="Help">Help&nbsp;&nbsp;<span class="glyphicon glyphicon-question-sign"></span></button>
+                                <button class="btn btn-default" type="button" id="btn-circle">Draw AOI&nbsp;&nbsp;<span class="glyphicon glyphicon-map-marker"></span></button>
+                                <button class="btn btn-default" type="button">Run Model&nbsp;&nbsp;<span class="glyphicon glyphicon-play"></span></button>
+                                <button class="btn btn-default" type="button" title="Help">Help&nbsp;&nbsp;<span class="glyphicon glyphicon-question-sign"></span></button>
                             </div>
                         </div>
                     </form>
+                </div>
+            </div>
+            <div id="results-panel" class="panel">
+                <div id="results" class="panel-heading"></div>
+                <div class="panel-body">
+                    <div id="progress" class="col-md-12 row text-center"></div>
                 </div>
             </div>
         </div>

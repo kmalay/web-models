@@ -1,6 +1,8 @@
 /**
  * Created by malayk on 5/5/2015.
  */
+var lat;
+var lon;
 
 function runModel1(){
     if ( xmin == undefined || xmin == "" ) { alert('Please use the Draw button to choose an AOI.'); return; }
