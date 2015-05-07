@@ -36,16 +36,17 @@ function runModel1(){
     var sqlStatement = '&select rows from table using sql.where column1=("column1" <= ' + cloudCover + ') OR ("column1" is null) AND ("column2" >= ' + predictedNiirs + ')';
     var booleanBvi = "&isBvi=" + checkboxBvi;
     var url = baseUrl + modelUrl + bbox + timeRange + booleanSocial + booleanIr + booleanComext + booleanImagery + booleanMidb + sqlStatement + booleanBvi;
-    console.log(url);
-    //window.location.href = url;
+
     $(".panel").css("margin-bottom", "0px");
     $("#results-panel").removeClass("panel-success");
     $("#results-panel").removeClass("panel-danger");
     $("#results-panel").show();
     $("#results").show();
-    $("#progress").html('<img src="../../elements/tools/doc/themes/bootstrap/assets/img/spinner.gif">');
+    $("#progress").html('<img src="spinner.gif">');
     $("#results").html("<p>Submitting, please wait...</p>");
 
+    console.log(url);
+    //window.location.href = url;
     /*
      $.ajax({
      url: url,
@@ -73,5 +74,5 @@ function runModel1(){
 
 function getResourceId() {
     var id = window.location.search.replace('?pId=', '');
-    $("#cctk-model-list select").val(id);
+    $("select#model-selector").val(id);
 }
