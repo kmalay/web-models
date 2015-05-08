@@ -52,14 +52,12 @@
              map.addLayer(layer1);
              */
 
-            //$("#btn-point").on("click", activateTool);
-            //$("#btn-multi-point").on("click", activateTool);
-            //$("#btn-freehand-polygon").on("click", activateTool);
-            $("#btn-circle").on("click", activateTool);
+            $("#point").on("click", activateTool);
+            $("#circle").on("click", activateTool);
 
             function activateTool() {
-                //var tool = $(this).text().toUpperCase().replace(/ /g, "_");
-                var tool = "CIRCLE";
+                var tool = $(this).attr('id').toUpperCase();
+                console.log(tool);
                 toolbar.activate(Draw[tool]);
                 map.hideZoomSlider();
             }
@@ -75,6 +73,9 @@
                 map.showZoomSlider();
                 switch (evt.geometry.type) {
                     case "point":
+                        geoType = "point";
+                        lat = evt.geometry.x;
+                        lon = evt.geometry.y;
                     case "multipoint":
                         symbol = new SimpleMarkerSymbol();
                         break;
@@ -83,6 +84,7 @@
                         break;
                     default:
                         symbol = new SimpleFillSymbol();
+                        geoType = "circle";
                         xmin = evt.geometry.getExtent().xmin;
                         xmax = evt.geometry.getExtent().xmax;
                         ymin = evt.geometry.getExtent().ymin;
@@ -92,7 +94,6 @@
                 var graphic = new Graphic(evt.geometry, symbol);
                 map.graphics.clear();
                 map.graphics.add(graphic);
-                console.log(evt.geometry);
             }
         });
     </script>
@@ -111,12 +112,12 @@
                             <div class="form-group">
                                 <label for="model-selector">Choose a model: </label>
                                 <select class="form-control" id="model-selector">
-                                    <option value="11111">Model 1</option>
-                                    <option value="22222">Model 2</option>
-                                    <option value="33333">Model 3</option>
-                                    <option value="44444">Model 4</option>
-                                    <option value="55555">Model 5</option>
-                                    <option value="66666">Model 6</option>
+                                    <option value="11111">Model 1 - Bounding Box</option>
+                                    <option value="22222">Model 2 - Bounding Box</option>
+                                    <option value="33333">Model 3 - Bounding Box</option>
+                                    <option value="44444">Model 4 - Point Radius</option>
+                                    <option value="55555">Model 5 - Point Radius</option>
+                                    <option value="66666">Model 6 - Point Radius</option>
                                 </select>
                             </div>
                         </form>
@@ -201,10 +202,23 @@
                         </div>
                         <div class="form-group">
                             <div class="col-sm-12">
-                                <button class="btn btn-default" type="button" id="btn-point">Draw Point&nbsp;&nbsp;<span class="glyphicon glyphicon-map-marker"></span></button>
-                                <button class="btn btn-default" type="button" id="btn-circle">Draw AOI&nbsp;&nbsp;<span class="glyphicon glyphicon-map-marker"></span></button>
+                                <button class="btn btn-default" type="button" id="point">Draw Point&nbsp;&nbsp;<span class="glyphicon glyphicon-map-marker"></span></button>
+                                <button class="btn btn-default" type="button" id="circle">Draw AOI&nbsp;&nbsp;<span class="glyphicon glyphicon-map-marker"></span></button>
                                 <button class="btn btn-default" type="button" onclick="runModel1();">Run Model&nbsp;&nbsp;<span class="glyphicon glyphicon-play"></span></button>
                                 <button class="btn btn-default" type="button" title="Help">Help&nbsp;&nbsp;<span class="glyphicon glyphicon-question-sign"></span></button>
+                            </div>
+                        </div>
+                        <div class="form-group" id="radius-div">
+                            <label for="radius" class="col-sm-7 control-label">Search radius </label>
+                            <div class="col-sm-4">
+                                <select class="form-control" id="radius">
+                                    <option value="10">10 kilometers</option>
+                                    <option value="20">20 kilometers</option>
+                                    <option value="30">30 kilometers</option>
+                                    <option value="40">40 kilometers</option>
+                                    <option value="50">50 kilometers</option>
+                                    <option value="60">60 kilometers</option>
+                                </select>
                             </div>
                         </div>
                     </form>
@@ -223,19 +237,22 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
     <script type="text/javascript">
         $(document).ready(function(){
-            $("results-panel").hide();
-            $("results").hide();
-            $("button#btn-point").hide();
+            $("div#results-panel").hide();
+            $("div#results").hide();
+            $("div#radius-div").hide();
+            $("button#point").hide();
             //getResourceId();
             $('#model-selector').change(function(){
                 var aoiModels = ['11111','22222','33333'];
                 var pointModels = ['44444','55555','66666'];
                 if ($.inArray($('#model-selector').val(), aoiModels) != -1) {
-                    $('button#btn-aoi').show();
-                    $('button#btn-point').hide();
+                    $('button#circle').show();
+                    $('button#point').hide();
+                    $("div#radius-div").hide();
                 } else {
-                    $('button#btn-aoi').hide();
-                    $('button#btn-point').show();
+                    $('button#circle').hide();
+                    $('button#point').show();
+                    $("div#radius-div").show();
                 };
             });
         });
