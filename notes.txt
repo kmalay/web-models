@@ -9,3 +9,280 @@
                         </div>
                     </div>
 
+                <div id="section-input-model-2">
+                    <form class="form-horizontal">
+                        <div class="form-group">
+                            <label for="model-2-time-range" class="col-sm-6 control-label">Select date range: </label>
+                            <div class="col-sm-5">
+                                <select class="form-control" id="model-2-time-range">
+                                    <option value="1">1 day</option>
+                                    <option value="2">2 days</option>
+                                    <option value="3">3 days</option>
+                                    <option value="4">4 days</option>
+                                    <option value="5">5 days</option>
+                                    <option value="6">6 days</option>
+                                    <option value="7">7 days</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="model-2-cloud-cover" class="col-sm-6 control-label">Cloud cover <= </label>
+                            <div class="col-sm-5">
+                                <select class="form-control" id="model-2-cloud-cover">
+                                    <option value="10">10 %</option>
+                                    <option value="20">20 %</option>
+                                    <option value="30">30 %</option>
+                                    <option value="40">40 %</option>
+                                    <option value="50">50 %</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="model-2-predicted-niirs" class="col-sm-7 control-label">Predicted NIIRS >= </label>
+                            <div class="col-sm-4">
+                                <select class="form-control" id="model-2-predicted-niirs">
+                                    <option value="5">5</option>
+                                    <option value="10">10</option>
+                                    <option value="15">15</option>
+                                    <option value="20">20</option>
+                                    <option value="25">25</option>
+                                    <option value="30">30</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div>
+                                <div class="checkbox-inline">
+                                    <label>
+                                        <input type="checkbox" id="model-2-checkbox-social" value="option1"> Source 1
+                                    </label>
+                                </div>
+                                <div class="checkbox-inline">
+                                    <label>
+                                        <input type="checkbox" id="model-2-checkbox-ir" value="option2"> Source 2
+                                    </label>
+                                </div>
+                                <div class="checkbox-inline">
+                                    <label>
+                                        <input type="checkbox" id="model-2-checkbox-comext" value="option3"> Source 3
+                                    </label>
+                                </div>
+                            </div>
+                            <div>
+                                <div class="checkbox-inline">
+                                    <label>
+                                        <input type="checkbox" id="model-2-checkbox-imagery" value="option4"> Source 4
+                                    </label>
+                                </div>
+                                <div class="checkbox-inline">
+                                    <label>
+                                        <input type="checkbox" id="model-2-checkbox-midb" value="option5"> Source 5
+                                    </label>
+                                </div>
+                                <div class="checkbox-inline">
+                                    <label>
+                                        <input type="checkbox" id="model-2-checkbox-bvi" value="option6"> Source 6
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-sm-12">
+                                <button class="btn btn-default" type="button" id="btn-circle">Draw AOI&nbsp;&nbsp;<span class="glyphicon glyphicon-map-marker"></span></button>
+                                <button class="btn btn-default" type="button">Run Model&nbsp;&nbsp;<span class="glyphicon glyphicon-play"></span></button>
+                                <button class="btn btn-default" type="button" title="Help">Help&nbsp;&nbsp;<span class="glyphicon glyphicon-question-sign"></span></button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div id="section-input-model-3">
+                    <form class="form-horizontal">
+                        <div class="form-group">
+                            <label for="model-3-time-range" class="col-sm-6 control-label">Select date range: </label>
+                            <div class="col-sm-5">
+                                <select class="form-control" id="model-3-time-range">
+                                    <option value="1">1 day</option>
+                                    <option value="2">2 days</option>
+                                    <option value="3">3 days</option>
+                                    <option value="4">4 days</option>
+                                    <option value="5">5 days</option>
+                                    <option value="6">6 days</option>
+                                    <option value="7">7 days</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="model-3-cloud-cover" class="col-sm-6 control-label">Cloud cover <= </label>
+                            <div class="col-sm-5">
+                                <select class="form-control" id="model-3-cloud-cover">
+                                    <option value="10">10 %</option>
+                                    <option value="20">20 %</option>
+                                    <option value="30">30 %</option>
+                                    <option value="40">40 %</option>
+                                    <option value="50">50 %</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="model-3-predicted-niirs" class="col-sm-7 control-label">Predicted NIIRS >= </label>
+                            <div class="col-sm-4">
+                                <select class="form-control" id="model-3-predicted-niirs">
+                                    <option value="5">5</option>
+                                    <option value="10">10</option>
+                                    <option value="15">15</option>
+                                    <option value="20">20</option>
+                                    <option value="25">25</option>
+                                    <option value="30">30</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div>
+                                <div class="checkbox-inline">
+                                    <label>
+                                        <input type="checkbox" id="model-3-checkbox-social" value="option1"> Source 1
+                                    </label>
+                                </div>
+                                <div class="checkbox-inline">
+                                    <label>
+                                        <input type="checkbox" id="model-3-checkbox-ir" value="option2"> Source 2
+                                    </label>
+                                </div>
+                                <div class="checkbox-inline">
+                                    <label>
+                                        <input type="checkbox" id="model-3-checkbox-comext" value="option3"> Source 3
+                                    </label>
+                                </div>
+                            </div>
+                            <div>
+                                <div class="checkbox-inline">
+                                    <label>
+                                        <input type="checkbox" id="model-3-checkbox-imagery" value="option4"> Source 4
+                                    </label>
+                                </div>
+                                <div class="checkbox-inline">
+                                    <label>
+                                        <input type="checkbox" id="model-3-checkbox-midb" value="option5"> Source 5
+                                    </label>
+                                </div>
+                                <div class="checkbox-inline">
+                                    <label>
+                                        <input type="checkbox" id="model-3-checkbox-bvi" value="option6"> Source 6
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-sm-12">
+                                <button class="btn btn-default" type="button" id="btn-circle">Draw AOI&nbsp;&nbsp;<span class="glyphicon glyphicon-map-marker"></span></button>
+                                <button class="btn btn-default" type="button">Run Model&nbsp;&nbsp;<span class="glyphicon glyphicon-play"></span></button>
+                                <button class="btn btn-default" type="button" title="Help">Help&nbsp;&nbsp;<span class="glyphicon glyphicon-question-sign"></span></button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div id="section-input-model-4">
+                    <form class="form-horizontal">
+                        <div class="form-group">
+                            <label for="model-4-time-range" class="col-sm-6 control-label">Select date range: </label>
+                            <div class="col-sm-5">
+                                <select class="form-control" id="model-4-time-range">
+                                    <option value="1">1 day</option>
+                                    <option value="2">2 days</option>
+                                    <option value="3">3 days</option>
+                                    <option value="4">4 days</option>
+                                    <option value="5">5 days</option>
+                                    <option value="6">6 days</option>
+                                    <option value="7">7 days</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div>
+                                <div class="checkbox-inline">
+                                    <label>
+                                        <input type="checkbox" id="model-4-checkbox-social" value="option1"> Source 1
+                                    </label>
+                                </div>
+                                <div class="checkbox-inline">
+                                    <label>
+                                        <input type="checkbox" id="model-4-checkbox-ir" value="option2"> Source 2
+                                    </label>
+                                </div>
+                                <div class="checkbox-inline">
+                                    <label>
+                                        <input type="checkbox" id="model-4-checkbox-comext" value="option3"> Source 3
+                                    </label>
+                                </div>
+                            </div>
+                            <div>
+                                <div class="checkbox-inline">
+                                    <label>
+                                        <input type="checkbox" id="model-4-checkbox-imagery" value="option4"> Source 4
+                                    </label>
+                                </div>
+                                <div class="checkbox-inline">
+                                    <label>
+                                        <input type="checkbox" id="model-4-checkbox-midb" value="option5"> Source 5
+                                    </label>
+                                </div>
+                                <div class="checkbox-inline">
+                                    <label>
+                                        <input type="checkbox" id="model-4-checkbox-bvi" value="option6"> Source 6
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-sm-12">
+                                <button class="btn btn-default" type="button" id="btn-circle">Draw AOI&nbsp;&nbsp;<span class="glyphicon glyphicon-map-marker"></span></button>
+                                <button class="btn btn-default" type="button">Run Model&nbsp;&nbsp;<span class="glyphicon glyphicon-play"></span></button>
+                                <button class="btn btn-default" type="button" title="Help">Help&nbsp;&nbsp;<span class="glyphicon glyphicon-question-sign"></span></button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div id="section-input-model-5">
+                    <form class="form-horizontal">
+                        <div class="form-group">
+                            <label for="model-5-time-range" class="col-sm-6 control-label">Select date range: </label>
+                            <div class="col-sm-5">
+                                <select class="form-control" id="model-5-time-range">
+                                    <option value="1">1 day</option>
+                                    <option value="2">2 days</option>
+                                    <option value="3">3 days</option>
+                                    <option value="4">4 days</option>
+                                    <option value="5">5 days</option>
+                                    <option value="6">6 days</option>
+                                    <option value="7">7 days</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div>
+                                <div class="checkbox-inline">
+                                    <label>
+                                        <input type="checkbox" id="model-5-checkbox-social" value="option1"> Source 1
+                                    </label>
+                                </div>
+                                <div class="checkbox-inline">
+                                    <label>
+                                        <input type="checkbox" id="model-5-checkbox-ir" value="option2"> Source 2
+                                    </label>
+                                </div>
+                                <div class="checkbox-inline">
+                                    <label>
+                                        <input type="checkbox" id="model-5-checkbox-comext" value="option3"> Source 3
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-sm-offset-2 col-sm-10">
+                                <button class="btn btn-default" type="button" id="btn-circle">Draw AOI&nbsp;&nbsp;<span class="glyphicon glyphicon-map-marker"></span></button>
+                                <button class="btn btn-default" type="button">Run Model&nbsp;&nbsp;<span class="glyphicon glyphicon-play"></span></button>
+                                <button class="btn btn-default" type="button" title="Help">Help&nbsp;&nbsp;<span class="glyphicon glyphicon-question-sign"></span></button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
