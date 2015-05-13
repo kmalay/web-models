@@ -71,7 +71,7 @@ function runModel1(){
     $(".panel").css("margin-bottom", "0px");
     $("#results-panel").removeClass("panel-success panel-danger").show();
     $("#results").show();
-    $("#progress").html('<img src="spinner.gif">');
+    $("#progress").html('<img width="80px" src="spinner.gif">');
     $("#results").html("<p>Submitting, please wait...</p>");
 
     //rkm - begin testing
