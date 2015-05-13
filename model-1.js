@@ -27,6 +27,7 @@ function runModel1(){
     var numDays = $("select#time-range").val();
     var cloudCover = $("select#cloud-cover").val();
     var predictedNiirs = $("select#predicted-niirs").val();
+    var radiusVal = $("select#radius").val();
     var checkboxSocial = "true";
     var checkboxIr = "true";
     var checkboxComext = "true";
@@ -46,6 +47,8 @@ function runModel1(){
     var baseUrl = "http://web-models.com";
     var modelUrl = "?modelUrl=http://web-models.com/resource/" + resourceId;
     var bbox = "&bbox=" + ymin + " " + xmin + " " + ymax + " " + xmax;
+    var point = "&point=" + lat + " " + lon;
+    var radius = "&radius=" + radiusVal;
     var timeRange = "&timeRange=" + "[] -P" + numDays + "D";
     var booleanSocial = "&isSocial=" + checkboxSocial;
     var booleanIr = "&isIr=" + checkboxIr;
@@ -54,7 +57,15 @@ function runModel1(){
     var booleanMidb = "&isMidb=" + checkboxMidb;
     var sqlStatement = '&select rows from table using sql.where column1=("column1" <= ' + cloudCover + ') OR ("column1" is null) AND ("column2" >= ' + predictedNiirs + ')';
     var booleanBvi = "&isBvi=" + checkboxBvi;
-    var url = baseUrl + modelUrl + bbox + timeRange + booleanSocial + booleanIr + booleanComext + booleanImagery + booleanMidb + sqlStatement + booleanBvi;
+    var url;
+    if ( geoType == "point" ) {
+        url = baseUrl + modelUrl + point + radius + timeRange + booleanSocial + booleanIr + booleanComext + booleanImagery + booleanMidb + sqlStatement + booleanBvi;
+    } else if (geoType == "circle") {
+        url = baseUrl + modelUrl + bbox + timeRange + booleanSocial + booleanIr + booleanComext + booleanImagery + booleanMidb + sqlStatement + booleanBvi;
+    } else {
+        console.log('No geo type selected.');
+        return;
+    }
 
     // Show the results panel with a loading gif
     $(".panel").css("margin-bottom", "0px");
@@ -66,10 +77,13 @@ function runModel1(){
     //rkm - begin testing
     console.log(url);
     setTimeout(function() {
-        var newHTML = '<a class="btn btn-link spaced" target="_blank" href="www.google.com">Google</a><br /><a class="btn btn-link spaced" target="_blank" href="sports.yahoo.com">Yahoo Sports</a><br /><a class="btn btn-link spaced" target="_blank" href="news.google.com">Google News</a>';
-        $("#progress").delay(1000).html(newHTML);
-        $("#results").delay(1000).html("<p>Download Result(s)</p>");
-        $("#results-panel").delay(1000).addClass("panel-success");
+        var newHTML =
+            '<a class="list-group-item" target="_blank" href="http://www.google.com">Result-1.kml</a>' +
+            '<a class="list-group-item" target="_blank" href="http://sports.yahoo.com">Result2.kml</a>' +
+            '<a class="list-group-item" target="_blank" href="http://news.google.com">Result3.kml</a>';
+        $("#progress").html(newHTML);
+        $("#results").html("<p>Download Result(s)</p>");
+        $("#results-panel").addClass("panel-success");
     }, 5000);
 
     //window.location.href = url;

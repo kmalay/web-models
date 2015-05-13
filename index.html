@@ -103,9 +103,13 @@
     <div id="mainWindow">
         <div class="panel panel-primary panel-fixed">
             <div class="panel-heading">
-                <h3 class="panel-title">Web Models Interactive API</h3>
+                <h3 class="panel-title">
+                    <a data-toggle="collapse" data-target="#collapseOne" href="#collapseOne">
+                        Web Models Interactive API
+                    </a>
+                </h3>
             </div>
-            <div class="panel-body">
+            <div id="collapseOne" class="panel-body collapse in">
                 <div class="col-md-12">
                     <div class="row">
                         <form class="form-inline">
@@ -227,7 +231,7 @@
             <div id="results-panel" class="panel">
                 <div id="results" class="panel-heading"></div>
                 <div class="panel-body">
-                    <div id="progress" class="col-md-12 row text-center"></div>
+                    <div id="progress" class="list-group text-center"></div>
                 </div>
             </div>
         </div>
