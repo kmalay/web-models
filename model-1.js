@@ -35,7 +35,6 @@ function runModel1(){
     var checkboxMidb = "true";
     var checkboxBvi = "true";
 
-    // Update checkbox vars based on user input
     if ( $("input#checkbox-social").prop('checked') == false ) { checkboxSocial = "false" };
     if ( $("input#checkbox-ir").prop('checked') == false ) { checkboxIr = "false" };
     if ( $("input#checkbox-comext").prop('checked') == false ) { checkboxComext = "false" };
