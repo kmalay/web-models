@@ -3,7 +3,7 @@
  */
 
 // Global vars for geo selection
-var geoType;
+var geoType = "circle";
 var lat;
 var lon;
 
@@ -11,7 +11,7 @@ function runModel1(){
 
     // Input validation
     // Verify that some type of geometry has been drawn (point or circle)
-    if ( (xmin == undefined || xmin == "") && (lat == undefined || lat == "") ) {
+    if ( (xMin == undefined || xMin == "") && (lat == undefined || lat == "") ) {
         alert('Please use the Draw button to choose an AOI.');
         return;
     }
@@ -45,7 +45,7 @@ function runModel1(){
     // Set up the url and parameters
     var baseUrl = "http://web-models.com";
     var modelUrl = "?modelUrl=http://web-models.com/resource/" + resourceId;
-    var bbox = "&bbox=" + ymin + " " + xmin + " " + ymax + " " + xmax;
+    var boundingbox = "&bbox=" + yMin + " " + xMin + " " + yMax + " " + xMax;
     var point = "&point=" + lat + " " + lon;
     var radius = "&radius=" + radiusVal;
     var timeRange = "&timeRange=" + "[] -P" + numDays + "D";
@@ -60,7 +60,7 @@ function runModel1(){
     if ( geoType == "point" ) {
         url = baseUrl + modelUrl + point + radius + timeRange + booleanSocial + booleanIr + booleanComext + booleanImagery + booleanMidb + sqlStatement + booleanBvi;
     } else if (geoType == "circle") {
-        url = baseUrl + modelUrl + bbox + timeRange + booleanSocial + booleanIr + booleanComext + booleanImagery + booleanMidb + sqlStatement + booleanBvi;
+        url = baseUrl + modelUrl + boundingbox + timeRange + booleanSocial + booleanIr + booleanComext + booleanImagery + booleanMidb + sqlStatement + booleanBvi;
     } else {
         console.log('No geo type selected.');
         return;
