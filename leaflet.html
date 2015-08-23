@@ -11,128 +11,128 @@
 </head>
 <body>
     <div id="sidebar" class="">
-                <div id="header">
-                    <h3>Web Models Interactive API</h3>
-                </div>
-                <div id="input" class="well">
-                    <div id="section-input-model">
-                        <form class="form-horizontal">
-                            <div class="form-group">
-                                <label for="model-selector" class="col-sm-6 control-label">Choose a model: </label>
-                                <div class="col-sm-5">
-                                    <select class="form-control" id="model-selector">
-                                        <option value="11111">Model 1 - Bounding Box</option>
-                                        <option value="22222">Model 2 - Bounding Box</option>
-                                        <option value="33333">Model 3 - Bounding Box</option>
-                                        <option value="44444">Model 4 - Point Radius</option>
-                                        <option value="55555">Model 5 - Point Radius</option>
-                                        <option value="66666">Model 6 - Point Radius</option>
-                                    </select>
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <label for="time-range" class="col-sm-6 control-label">Select date range: </label>
-                                <div class="col-sm-5">
-                                    <select class="form-control" id="time-range">
-                                        <option value="1">1 day</option>
-                                        <option value="2">2 days</option>
-                                        <option value="3">3 days</option>
-                                        <option value="4">4 days</option>
-                                        <option value="5">5 days</option>
-                                        <option value="6">6 days</option>
-                                        <option value="7">7 days</option>
-                                    </select>
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <label for="cloud-cover" class="col-sm-6 control-label">Cloud cover <= </label>
-                                <div class="col-sm-5">
-                                    <select class="form-control" id="cloud-cover">
-                                        <option value="10">10 %</option>
-                                        <option value="20">20 %</option>
-                                        <option value="30">30 %</option>
-                                        <option value="40">40 %</option>
-                                        <option value="50">50 %</option>
-                                    </select>
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <label for="predicted-niirs" class="col-sm-7 control-label">Predicted NIIRS >= </label>
-                                <div class="col-sm-4">
-                                    <select class="form-control" id="predicted-niirs">
-                                        <option value="5">5</option>
-                                        <option value="10">10</option>
-                                        <option value="15">15</option>
-                                        <option value="20">20</option>
-                                        <option value="25">25</option>
-                                        <option value="30">30</option>
-                                    </select>
-                                </div>
-                            </div>
-                            <div class="form-group text-center">
-                                <div>
-                                    <div class="checkbox-inline">
-                                        <label>
-                                            <input type="checkbox" id="checkbox-social" value="option1"> Source 1
-                                        </label>
-                                    </div>
-                                    <div class="checkbox-inline">
-                                        <label>
-                                            <input type="checkbox" id="checkbox-ir" value="option2"> Source 2
-                                        </label>
-                                    </div>
-                                    <div class="checkbox-inline">
-                                        <label>
-                                            <input type="checkbox" id="checkbox-comext" value="option3"> Source 3
-                                        </label>
-                                    </div>
-                                </div>
-                                <div>
-                                    <div class="checkbox-inline">
-                                        <label>
-                                            <input type="checkbox" id="checkbox-imagery" value="option4"> Source 4
-                                        </label>
-                                    </div>
-                                    <div class="checkbox-inline">
-                                        <label>
-                                            <input type="checkbox" id="checkbox-midb" value="option5"> Source 5
-                                        </label>
-                                    </div>
-                                    <div class="checkbox-inline">
-                                        <label>
-                                            <input type="checkbox" id="checkbox-bvi" value="option6"> Source 6
-                                        </label>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="form-group text-center">
-                                <div class="col-sm-12">
-                                    <button id="run-btn" class="btn btn-default" type="button">Run Model&nbsp;&nbsp;<span class="glyphicon glyphicon-play"></span></button>
-                                    <button id="help-btn" class="btn btn-default" type="button" title="Help">Help&nbsp;&nbsp;<span class="glyphicon glyphicon-question-sign"></span></button>
-                                </div>
-                            </div>
-                            <div class="form-group" id="radius-div">
-                                <label for="radius" class="col-sm-7 control-label">Search radius </label>
-                                <div class="col-sm-4">
-                                    <select class="form-control" id="radius">
-                                        <option value="10">10 kilometers</option>
-                                        <option value="20">20 kilometers</option>
-                                        <option value="30">30 kilometers</option>
-                                        <option value="40">40 kilometers</option>
-                                        <option value="50">50 kilometers</option>
-                                        <option value="60">60 kilometers</option>
-                                    </select>
-                                </div>
-                            </div>
-                        </form>
+        <div id="header">
+            <h3>Web Models Interactive API</h3>
+        </div>
+        <div id="input" class="well">
+            <div id="section-input-model">
+                <form class="form-horizontal">
+                    <div class="form-group">
+                        <label for="model-selector" class="col-sm-6 control-label">Choose a model: </label>
+                        <div class="col-sm-5">
+                            <select class="form-control" id="model-selector">
+                                <option value="11111">Model 1 - Bounding Box</option>
+                                <option value="22222">Model 2 - Bounding Box</option>
+                                <option value="33333">Model 3 - Bounding Box</option>
+                                <option value="44444">Model 4 - Point Radius</option>
+                                <option value="55555">Model 5 - Point Radius</option>
+                                <option value="66666">Model 6 - Point Radius</option>
+                            </select>
+                        </div>
                     </div>
-                </div>
-                <div id="results-panel" class="panel">
-                    <div id="results" class="panel-heading"></div>
-                    <div class="panel-body">
-                        <div id="progress" class="list-group text-center"></div>
+                    <div class="form-group">
+                        <label for="time-range" class="col-sm-6 control-label">Select date range: </label>
+                        <div class="col-sm-5">
+                            <select class="form-control" id="time-range">
+                                <option value="1">1 day</option>
+                                <option value="2">2 days</option>
+                                <option value="3">3 days</option>
+                                <option value="4">4 days</option>
+                                <option value="5">5 days</option>
+                                <option value="6">6 days</option>
+                                <option value="7">7 days</option>
+                            </select>
+                        </div>
                     </div>
-                </div>
+                    <div class="form-group">
+                        <label for="cloud-cover" class="col-sm-6 control-label">Cloud cover <= </label>
+                        <div class="col-sm-5">
+                            <select class="form-control" id="cloud-cover">
+                                <option value="10">10 %</option>
+                                <option value="20">20 %</option>
+                                <option value="30">30 %</option>
+                                <option value="40">40 %</option>
+                                <option value="50">50 %</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="predicted-niirs" class="col-sm-7 control-label">Predicted NIIRS >= </label>
+                        <div class="col-sm-4">
+                            <select class="form-control" id="predicted-niirs">
+                                <option value="5">5</option>
+                                <option value="10">10</option>
+                                <option value="15">15</option>
+                                <option value="20">20</option>
+                                <option value="25">25</option>
+                                <option value="30">30</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group text-center">
+                        <div>
+                            <div class="checkbox-inline">
+                                <label>
+                                    <input type="checkbox" id="checkbox-social" value="option1"> Source 1
+                                </label>
+                            </div>
+                            <div class="checkbox-inline">
+                                <label>
+                                    <input type="checkbox" id="checkbox-ir" value="option2"> Source 2
+                                </label>
+                            </div>
+                            <div class="checkbox-inline">
+                                <label>
+                                    <input type="checkbox" id="checkbox-comext" value="option3"> Source 3
+                                </label>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="checkbox-inline">
+                                <label>
+                                    <input type="checkbox" id="checkbox-imagery" value="option4"> Source 4
+                                </label>
+                            </div>
+                            <div class="checkbox-inline">
+                                <label>
+                                    <input type="checkbox" id="checkbox-midb" value="option5"> Source 5
+                                </label>
+                            </div>
+                            <div class="checkbox-inline">
+                                <label>
+                                    <input type="checkbox" id="checkbox-bvi" value="option6"> Source 6
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group text-center">
+                        <div class="col-sm-12">
+                            <button id="run-btn" class="btn btn-default" type="button">Run Model&nbsp;&nbsp;<span class="glyphicon glyphicon-play"></span></button>
+                            <button id="help-btn" class="btn btn-default" type="button" title="Help">Help&nbsp;&nbsp;<span class="glyphicon glyphicon-question-sign"></span></button>
+                        </div>
+                    </div>
+                    <div class="form-group" id="radius-div">
+                        <label for="radius" class="col-sm-7 control-label">Search radius </label>
+                        <div class="col-sm-4">
+                            <select class="form-control" id="radius">
+                                <option value="10">10 kilometers</option>
+                                <option value="20">20 kilometers</option>
+                                <option value="30">30 kilometers</option>
+                                <option value="40">40 kilometers</option>
+                                <option value="50">50 kilometers</option>
+                                <option value="60">60 kilometers</option>
+                            </select>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <div id="results-panel" class="panel">
+            <div id="results" class="panel-heading"></div>
+            <div class="panel-body">
+                <div id="progress" class="list-group text-center"></div>
+            </div>
+        </div>
     </div>
     <div id="map"></div>
 
