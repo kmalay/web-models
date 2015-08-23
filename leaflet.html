@@ -11,15 +11,15 @@
 </head>
 <body>
     <div id="sidebar" class="">
-                <div class="">
+                <div id="header">
                     <h3>Web Models Interactive API</h3>
                 </div>
-                <div id="collapseOne" class="">
-                    <div class="col-md-12">
-                        <div class="row">
-                            <form class="form-inline">
-                                <div class="form-group">
-                                    <label for="model-selector">Choose a model: </label>
+                <div id="input" class="well">
+                    <div id="section-input-model">
+                        <form class="form-horizontal">
+                            <div class="form-group">
+                                <label for="model-selector" class="col-sm-6 control-label">Choose a model: </label>
+                                <div class="col-sm-5">
                                     <select class="form-control" id="model-selector">
                                         <option value="11111">Model 1 - Bounding Box</option>
                                         <option value="22222">Model 2 - Bounding Box</option>
@@ -29,11 +29,7 @@
                                         <option value="66666">Model 6 - Point Radius</option>
                                     </select>
                                 </div>
-                            </form>
-                        </div>
-                    </div>
-                    <div id="section-input-model">
-                        <form class="form-horizontal">
+                            </div>
                             <div class="form-group">
                                 <label for="time-range" class="col-sm-6 control-label">Select date range: </label>
                                 <div class="col-sm-5">
@@ -73,7 +69,7 @@
                                     </select>
                                 </div>
                             </div>
-                            <div class="form-group">
+                            <div class="form-group text-center">
                                 <div>
                                     <div class="checkbox-inline">
                                         <label>
@@ -109,10 +105,10 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="form-group">
+                            <div class="form-group text-center">
                                 <div class="col-sm-12">
-                                    <button class="btn btn-default" type="button" onclick="runModel1();">Run Model&nbsp;&nbsp;<span class="glyphicon glyphicon-play"></span></button>
-                                    <button class="btn btn-default" type="button" title="Help">Help&nbsp;&nbsp;<span class="glyphicon glyphicon-question-sign"></span></button>
+                                    <button id="run-btn" class="btn btn-default" type="button">Run Model&nbsp;&nbsp;<span class="glyphicon glyphicon-play"></span></button>
+                                    <button id="help-btn" class="btn btn-default" type="button" title="Help">Help&nbsp;&nbsp;<span class="glyphicon glyphicon-question-sign"></span></button>
                                 </div>
                             </div>
                             <div class="form-group" id="radius-div">
@@ -146,24 +142,7 @@
     <script src="node_modules/leaflet-draw/dist/leaflet.draw.js"></script>
     <script src="node_modules/leaflet-sidebar/src/L.Control.Sidebar.js"></script>
     <script src="custom.js"></script>
-    <script src="model-1.js"></script>
-    <script type="text/javascript">
-        $(document).ready(function(){
-            $("div#results-panel").hide();
-            $("div#results").hide();
-            $("div#radius-div").hide();
-            $('#model-selector').change(function(){
-                var aoiModels = ['11111','22222','33333'];
-                var pointModels = ['44444','55555','66666'];
-                if ($.inArray($('#model-selector').val(), aoiModels) != -1) {
-                    $("div#radius-div").hide();
-                    geoType = "circle";
-                } else {
-                    $("div#radius-div").show();
-                    geoType = "point";
-                };
-            });
-        });
-    </script>
+    <script src="model.js"></script>
+    <script src="init.js"></script>
 </body>
 </html>

@@ -78,8 +78,8 @@ function runModel1(){
     setTimeout(function() {
         var newHTML =
             '<a class="list-group-item" target="_blank" href="http://www.google.com">Result-1.kml</a>' +
-            '<a class="list-group-item" target="_blank" href="http://sports.yahoo.com">Result2.kml</a>' +
-            '<a class="list-group-item" target="_blank" href="http://news.google.com">Result3.kml</a>';
+            '<a class="list-group-item" target="_blank" href="http://sports.yahoo.com">Result-2.kml</a>' +
+            '<a class="list-group-item" target="_blank" href="http://news.google.com">Result-3.kml</a>';
         $("#progress").html(newHTML);
         $("#results").html("<p>Download Result(s)</p>");
         $("#results-panel").addClass("panel-success");
