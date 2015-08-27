@@ -25,7 +25,7 @@ var options = {
         },
         circle: false,
         rectangle: false,
-        marker: false
+        marker: true
     },
     /*
      edit: {
@@ -53,7 +53,11 @@ map.on('draw:created', function (e) {
     xMin = drawnItems.getBounds()._southWest.lat;
     yMin = drawnItems.getBounds()._southWest.lng;
     bbox = xMax + " " + yMax + " " + xMin + " " + yMin;
+    lat = xMax;
+    lon = yMax;
+    console.log('geoType: ' + geoType);
     console.log('bbox:  ' + bbox);
+    console.log('point: ' + lat + ' ' + lon);
 });
 
 var sidebar = L.control.sidebar('sidebar', {
@@ -62,7 +66,3 @@ var sidebar = L.control.sidebar('sidebar', {
 });
 
 map.addControl(sidebar);
-
-setTimeout(function () {
-    sidebar.show();
-}, 500);
