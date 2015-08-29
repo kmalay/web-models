@@ -134,6 +134,13 @@
                                     </select>
                                 </div>
                             </div>
+                            <div class="form-group" id="latlon-div">
+                                <label for="lat" class="col-sm-3 control-label">Lat/Lon </label>
+                                <div class="col-sm-7">
+                                    <input class="form-control" id="lat" />
+                                    <input class="form-control" id="lon" />
+                                </div>
+                            </div>
                         </form>
                     </div>
                 </div>
@@ -154,7 +161,27 @@
     <script src="node_modules/leaflet-draw/dist/leaflet.draw.js"></script>
     <script src="node_modules/sidebar-v2-gh-pages/js/leaflet-sidebar.js"></script>
     <script src="custom.js"></script>
+    <script>
+        $(document).ready(function(){
+            $("div#results-panel").hide();
+            $("div#results").hide();
+            $("div#radius-div").hide();
+            $('#model-selector').change(function(){
+                var aoiModels = ['11111','22222','33333'];
+                var pointModels = ['44444','55555','66666'];
+                if ($.inArray($('#model-selector').val(), aoiModels) != -1) {
+                    $("div#radius-div").hide();
+                    geoType = "circle";
+                } else {
+                    $("div#radius-div").show();
+                    geoType = "point";
+                };
+            });
+            $("#run-btn").click(function(){
+                runModel1();
+            })
+        });
+    </script>
     <script src="model.js"></script>
-    <script src="init.js"></script>
 </body>
 </html>

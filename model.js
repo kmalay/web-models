@@ -1,11 +1,11 @@
 /**
  * Created by malayk on 5/5/2015.
  */
-
 // Global vars for geo selection
 var geoType = "circle";
 var lat;
 var lon;
+var point;
 
 function runModel1(){
 
@@ -46,7 +46,9 @@ function runModel1(){
     var baseUrl = "http://web-models.com";
     var modelUrl = "?modelUrl=http://web-models.com/resource/" + resourceId;
     var boundingbox = "&bbox=" + yMin + " " + xMin + " " + yMax + " " + xMax;
-    var point = "&point=" + lat + " " + lon;
+    var manLat = $("input#lat").val();
+    var manLon = $("input#lon").val();
+
     var radius = "&radius=" + radiusVal;
     var timeRange = "&timeRange=" + "[] -P" + numDays + "D";
     var booleanSocial = "&isSocial=" + checkboxSocial;
@@ -57,7 +59,16 @@ function runModel1(){
     var sqlStatement = '&select rows from table using sql.where column1=("column1" <= ' + cloudCover + ') OR ("column1" is null) AND ("column2" >= ' + predictedNiirs + ')';
     var booleanBvi = "&isBvi=" + checkboxBvi;
     var url;
+
     if ( geoType == "point" ) {
+        console.log("manLat: " + manLat);
+        console.log("manLon: " + manLon);
+
+        if ( manLat == '' || manLon == '' || manLat == 'undefined' || manLon == 'undefined' ) {
+            point = "&point=" + lat + " " + lon;
+        } else {
+            point = "&point=" + manLat + " " + manLon;
+        }
         url = baseUrl + modelUrl + point + radius + timeRange + booleanSocial + booleanIr + booleanComext + booleanImagery + booleanMidb + sqlStatement + booleanBvi;
     } else if (geoType == "circle") {
         url = baseUrl + modelUrl + boundingbox + timeRange + booleanSocial + booleanIr + booleanComext + booleanImagery + booleanMidb + sqlStatement + booleanBvi;
