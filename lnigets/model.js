@@ -12,12 +12,7 @@ function runModel1(){
     // Input validation
     // Verify that some type of geometry has been drawn (point or circle)
     if ( (xMin == undefined || xMin == "") && (lat == undefined || lat == "") ) {
-        alert('Please use the Draw button to choose an AOI.');
-        return;
-    }
-    // Verify that at least one data source was chosen
-    if ( $("input:checked").length == 0 ) {
-        alert('Please choose which data source(s) you would like to use.');
+        alert('Please use the Draw button to choose an area for your search.');
         return;
     }
 
@@ -25,22 +20,7 @@ function runModel1(){
     // Initialize checkbox var values
     var resourceId = $("select#model-selector").val();
     var numDays = $("select#time-range").val();
-    var cloudCover = $("select#cloud-cover").val();
-    var predictedNiirs = $("select#predicted-niirs").val();
     var radiusVal = $("select#radius").val();
-    var checkboxSocial = "true";
-    var checkboxIr = "true";
-    var checkboxComext = "true";
-    var checkboxImagery = "true";
-    var checkboxMidb = "true";
-    var checkboxBvi = "true";
-
-    if ( $("input#checkbox-social").prop('checked') == false ) { checkboxSocial = "false" };
-    if ( $("input#checkbox-ir").prop('checked') == false ) { checkboxIr = "false" };
-    if ( $("input#checkbox-comext").prop('checked') == false ) { checkboxComext = "false" };
-    if ( $("input#checkbox-imagery").prop('checked') == false ) { checkboxImagery = "false" };
-    if ( $("input#checkbox-midb").prop('checked') == false ) { checkboxMidb = "false" };
-    if ( $("input#checkbox-bvi").prop('checked') == false ) { checkboxBvi = "false" };
 
     // Set up the url and parameters
     var baseUrl = "http://web-models.com";
@@ -51,13 +31,6 @@ function runModel1(){
 
     var radius = "&radius=" + radiusVal;
     var timeRange = "&timeRange=" + "[] -P" + numDays + "D";
-    var booleanSocial = "&isSocial=" + checkboxSocial;
-    var booleanIr = "&isIr=" + checkboxIr;
-    var booleanComext = "&isComext=" + checkboxComext;
-    var booleanImagery = "&isImagery=" + checkboxImagery;
-    var booleanMidb = "&isMidb=" + checkboxMidb;
-    var sqlStatement = '&select rows from table using sql.where column1=("column1" <= ' + cloudCover + ') OR ("column1" is null) AND ("column2" >= ' + predictedNiirs + ')';
-    var booleanBvi = "&isBvi=" + checkboxBvi;
     var url;
 
     if ( geoType == "point" ) {
@@ -69,9 +42,10 @@ function runModel1(){
         } else {
             point = "&point=" + manLat + " " + manLon;
         }
-        url = baseUrl + modelUrl + point + radius + timeRange + booleanSocial + booleanIr + booleanComext + booleanImagery + booleanMidb + sqlStatement + booleanBvi;
+
+        url = baseUrl + modelUrl + point + radius + timeRange;
     } else if (geoType == "circle") {
-        url = baseUrl + modelUrl + boundingbox + timeRange + booleanSocial + booleanIr + booleanComext + booleanImagery + booleanMidb + sqlStatement + booleanBvi;
+        url = baseUrl + modelUrl + boundingbox + timeRange;
     } else {
         console.log('No geo type selected.');
         return;
@@ -82,21 +56,25 @@ function runModel1(){
     $("#results-panel").removeClass("panel-success panel-danger").show();
     $("#results").show();
     $("#progress").html('<img width="80px" src="spinner.gif">');
-    $("#results").html("<p>Submitting, please wait...</p>");
+    $("#results").html("<p>Executing model, please wait...</p>");
 
     //rkm - begin testing
-    console.log(url);
+    //console.log(url);
     setTimeout(function() {
         var newHTML =
-            '<a class="list-group-item" target="_blank" href="http://www.google.com" data-toggle="modal" data-target="#report">Result-1.kml</a>' +
-            '<a class="list-group-item" target="_blank" href="http://sports.yahoo.com" data-toggle="modal" data-target="#report">Result-2.kml</a>' +
-            '<a class="list-group-item" target="_blank" href="http://news.google.com" data-toggle="modal" data-target="#report">Result-3.kml</a>';
+            '<a class="list-group-item" href="#report" data-toggle="modal">Report 1</a>' +
+            '<a class="list-group-item" href="#report" data-toggle="modal">Report 2</a>' +
+            '<a class="list-group-item" href="#report" data-toggle="modal">Report 3</a>' +
+            '<a class="list-group-item" href="#report" data-toggle="modal">Report 4</a>' +
+            '<a class="list-group-item" href="#report" data-toggle="modal">Report 5</a>' +
+            '<a class="list-group-item" href="#report" data-toggle="modal">Report 6</a>' +
+            '<a class="list-group-item" href="#report" data-toggle="modal">Report 7</a>' +
+            '<a class="list-group-item" href="#report" data-toggle="modal">Report 8</a>' +
+            '<a class="list-group-item" href="#report" data-toggle="modal">Report 9</a>';
         $("#progress").html(newHTML);
-        $("#results").html("<p>Download Result(s)</p>");
+        $("#results").html("<p>Model Result(s)</p>");
         $("#results-panel").addClass("panel-success");
     }, 5000);
-
-    //window.location.href = url;
 
     // Make the ajax call to execute the model
     /*
@@ -125,6 +103,3 @@ function runModel1(){
 
 }
 
-function showDoc (name, url) {
-    console.log(name + " : " + url);
-}

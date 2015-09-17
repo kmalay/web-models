@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>Leaflet Test</title>
+    <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="../node_modules/font-awesome/css/font-awesome.min.css" />
+    <link rel="stylesheet" href="../node_modules/leaflet/dist/leaflet.css" />
+    <link rel="stylesheet" href="../node_modules/leaflet-draw/dist/leaflet.draw.css" />
+    <link rel="stylesheet" href="../node_modules/sidebar-v2-gh-pages/css/leaflet-sidebar.css" />
+    <link rel="stylesheet" href="main.css" />
+</head>
+<body>
+    <div id="sidebar" class="sidebar collapsed">
+        <div class="sidebar-tabs">
+            <ul role="tablist">
+                <li><a href="#home" role="tab"><i class="fa fa-bars"></i></a></li>
+            </ul>
+        </div>
+
+        <div class="sidebar-content">
+            <div class="sidebar-pane" id="home">
+                <h1 class="sidebar-header">
+                    Web Models
+                    <div class="sidebar-close"><i class="fa fa-caret-right"></i></div>
+                </h1>
+                <div id="input" class="">
+                    <div id="section-input-model">
+                        <form class="form-horizontal">
+                            <div class="form-group">
+                                <label for="model-selector" class="col-sm-6 control-label">Choose a model: </label>
+                                <div class="col-sm-5">
+                                    <select class="form-control" id="model-selector">
+                                        <option value="1">Bounding Box</option>
+                                        <option value="2">Point Radius</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="time-range" class="col-sm-6 control-label">Date range: </label>
+                                <div class="col-sm-5">
+                                    <select class="form-control" id="time-range">
+                                        <option value="1">1 day</option>
+                                        <option value="2">2 days</option>
+                                        <option value="3">3 days</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="form-group" id="radius-div">
+                                <label for="radius" class="col-sm-7 control-label">Search radius </label>
+                                <div class="col-sm-4">
+                                    <select class="form-control" id="radius">
+                                        <option value="10">10 km</option>
+                                        <option value="20">20 km</option>
+                                        <option value="30">30 km</option>
+                                        <option value="40">40 km</option>
+                                        <option value="50">50 km</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="form-group" id="latlon-div">
+                                <label for="lat" class="col-sm-3 control-label">Lat/Lon </label>
+                                <div class="col-sm-7">
+                                    <input class="form-control" id="lat" />
+                                    <input class="form-control" id="lon" />
+                                </div>
+                            </div>
+                            <div class="form-group text-center">
+                                <div class="col-sm-12">
+                                    <button id="run-btn" class="btn btn-default" type="button">Run Model&nbsp;&nbsp;<span class="glyphicon glyphicon-play"></span></button>
+                                    <button id="help-btn" class="btn btn-default" type="button" title="Help">Help&nbsp;&nbsp;<span class="glyphicon glyphicon-question-sign"></span></button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                <div id="results-panel" class="panel">
+                    <div id="results" class="panel-heading"></div>
+                    <div class="panel-body">
+                        <div id="progress" class="list-group text-center"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="map">
+        <div class="modal fade" id="report" tabindex="-1" role="dialog" aria-labelledby="label">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                        <h4 class="modal-title" id="label">Modal title</h4>
+                    </div>
+                    <div class="modal-body">
+                        <iframe src="http://getbootstrap.com/examples/blog"></iframe>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <script src="../node_modules/jquery/dist/jquery.min.js"></script>
+    <script src="../node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="../node_modules/leaflet/dist/leaflet.js"></script>
+    <script src="../node_modules/leaflet-draw/dist/leaflet.draw.js"></script>
+    <script src="../node_modules/sidebar-v2-gh-pages/js/leaflet-sidebar.js"></script>
+    <script src="main.js"></script>
+    <script>
+        $(document).ready(function(){
+            $("div#results-panel").hide();
+            $("div#results").hide();
+            $("div#radius-div").hide();
+            $("div#latlon-div").hide();
+            $('#model-selector').change(function(){
+                var aoiModels = ['1'];
+                var pointModels = ['2'];
+                if ($.inArray($('#model-selector').val(), aoiModels) != -1) {
+                    $("div#radius-div").hide();
+                    $("div#latlon-div").hide();
+                    geoType = "circle";
+                } else {
+                    $("div#radius-div").show();
+                    $("div#latlon-div").show();
+                    geoType = "point";
+                };
+            });
+            $("#run-btn").click(function(){
+                runModel1();
+            })
+        });
+    </script>
+    <script src="model.js"></script>
+</body>
+</html>
