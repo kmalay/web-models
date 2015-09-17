@@ -5,3 +5,12 @@
     top: 0;
     left: 0;
 }
+#input {
+    margin-top: 20px;
+}
+#report {
+    bottom: 0%;
+    left: 0%;
+    right: 50%;
+    top: 25%;
+}

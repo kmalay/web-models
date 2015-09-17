@@ -9,7 +9,6 @@ var point;
 
 function runModel1(){
 
-    // Input validation
     // Verify that some type of geometry has been drawn (point or circle)
     if ( (xMin == undefined || xMin == "") && (lat == undefined || lat == "") ) {
         alert('Please use the Draw button to choose an area for your search.');
@@ -17,7 +16,6 @@ function runModel1(){
     }
 
     // Set up variables to hold select list values
-    // Initialize checkbox var values
     var resourceId = $("select#model-selector").val();
     var numDays = $("select#time-range").val();
     var radiusVal = $("select#radius").val();
@@ -36,13 +34,11 @@ function runModel1(){
     if ( geoType == "point" ) {
         console.log("manLat: " + manLat);
         console.log("manLon: " + manLon);
-
         if ( manLat == '' || manLon == '' || manLat == 'undefined' || manLon == 'undefined' ) {
             point = "&point=" + lat + " " + lon;
         } else {
             point = "&point=" + manLat + " " + manLon;
         }
-
         url = baseUrl + modelUrl + point + radius + timeRange;
     } else if (geoType == "circle") {
         url = baseUrl + modelUrl + boundingbox + timeRange;
@@ -59,47 +55,41 @@ function runModel1(){
     $("#results").html("<p>Executing model, please wait...</p>");
 
     //rkm - begin testing
-    //console.log(url);
-    setTimeout(function() {
-        var newHTML =
-            '<a class="list-group-item" href="#report" data-toggle="modal">Report 1</a>' +
-            '<a class="list-group-item" href="#report" data-toggle="modal">Report 2</a>' +
-            '<a class="list-group-item" href="#report" data-toggle="modal">Report 3</a>' +
-            '<a class="list-group-item" href="#report" data-toggle="modal">Report 4</a>' +
-            '<a class="list-group-item" href="#report" data-toggle="modal">Report 5</a>' +
-            '<a class="list-group-item" href="#report" data-toggle="modal">Report 6</a>' +
-            '<a class="list-group-item" href="#report" data-toggle="modal">Report 7</a>' +
-            '<a class="list-group-item" href="#report" data-toggle="modal">Report 8</a>' +
-            '<a class="list-group-item" href="#report" data-toggle="modal">Report 9</a>';
-        $("#progress").html(newHTML);
-        $("#results").html("<p>Model Result(s)</p>");
-        $("#results-panel").addClass("panel-success");
-    }, 5000);
+    url = "http://localhost:63342/web-models/lnigets/test-data.json";
 
     // Make the ajax call to execute the model
-    /*
     $.ajax({
         url: url,
-        success: function(result){
-            var returnedHTML = $('<div/>').html(result).contents();
+        success: function(results){
             var newHTML = "";
-            returnedHTML.find("a").each(function( index ){
-                newHTML = newHTML + '<a class="btn btn-info btn-xs spaced" href="' + $(this).attr('href') + '" target="_blank">' + $(this).text() + '</a><br />';
+            $.each(results.docs, function( key, result ){
+                console.log('inside loop');
+                console.log(key + ":" + result);
+                newHTML = newHTML +
+                    '<a class="list-group-item" href="javascript:showDoc(' + "'" + result.title + "','" + result.url + "'" + ');">' + result.title + '</a>';
             });
             $("#progress").html(newHTML);
-            $("#results").html("<p>Download Result(s)</p>");
+            $("#results").html("<p>Top Results</p>");
             $("#results-panel").addClass("panel-success");
         },
-        error: function(){
-            $("#results-panel").addClass("panel-danger"):
-            $("#results").html("<p>Download Failure</p>"):
-            $("#progress").html('<strong>Response Status:  </strong> ' + textStatus + '<br /> <strong>Error Type: </strong> ' + errorThrown):
-        },
+        error: function(xhr, status, error){
+            $("#results-panel").addClass("panel-danger");
+            $("#results").html("<p>Download Failure</p>");
+            $("#progress").html('<strong>Error:  </strong> ' + xhr.responseText);
+        }
+        /*,
         xhrFields: {
             withCredentials: true
         }
+        */
     });
-    */
 
 }
 
+function showDoc ( name, url ) {
+    //console.log(name + ": " + url);
+    $("#report").modal('hide');
+    $(".modal-title").text(name);
+    $("iframe").attr('src', url);
+    $("#report").modal('show');
+}
