@@ -62,15 +62,36 @@ function runModel1(){
         url: url,
         success: function(results){
             var newHTML = "";
+
             $.each(results.docs, function( key, result ){
-                console.log('inside loop');
-                console.log(key + ":" + result);
+                //console.log('inside loop');
+                //console.log(key + ":" + result);
                 newHTML = newHTML +
-                    '<a class="list-group-item" href="javascript:showDoc(' + "'" + result.title + "','" + result.url + "'" + ');">' + result.title + '</a>';
+                    // '<a class="list-group-item" href="javascript:showDoc(' + "'" + result.title + "','" + result.url + "'" + ');">' + result.title + '</a>';
+                    '<a class="list-group-item" href="' + result.url + '" data-toggle="modal" data-target="#report">' + result.title + '</a>';
             });
+
             $("#progress").html(newHTML);
             $("#results").html("<p>Top Results</p>");
             $("#results-panel").addClass("panel-success");
+
+            $('a[data-toggle="modal"]').on('click', function(){
+                // update modal header with contents of button that invoked the modal
+                $('#label').html( $(this).html() );
+                //fixes a bootstrap bug that prevents a modal from being reused
+                console.log($(this).attr('href'));
+                $('.modal-content').load(
+                    $(this).attr('href'),
+                    function(response, status, xhr) {
+                        if (status === 'error') {
+                            //console.log('got here');
+                            $('.modal-body').html('<h2>Oh snap!</h2><p>Error:' + xhr.status + ' ' + xhr.statusText+ '</p>');
+                        }
+                        return this;
+                    }
+                );
+            });
+
         },
         error: function(xhr, status, error){
             $("#results-panel").addClass("panel-danger");
@@ -89,6 +110,8 @@ function runModel1(){
 function showDoc ( name, url ) {
     //console.log(name + ": " + url);
     $("#report").modal('hide');
+    $('body').removeClass('modal-open');
+    $('.modal-backdrop').remove();
     $(".modal-title").text(name);
     $("iframe").attr('src', url);
     $("#report").modal('show');

@@ -2,39 +2,39 @@
   "docs": [
     {
       "title": "Report 1",
-      "url": "http://getbootstrap.com/examples/starter-template"
+      "url": "http://localhost:63342/web-models/lnigets/reports/report1.html"
     },
     {
       "title": "Report 2",
-      "url": "http://getbootstrap.com/examples/theme"
+      "url": "http://localhost:63342/web-models/lnigets/reports/report2.html"
     },
     {
       "title": "Report 3",
-      "url": "http://getbootstrap.com/examples/grid"
+      "url": "http://localhost:63342/web-models/lnigets/reports/report3.html"
     },
     {
       "title": "Report 4",
-      "url": "http://getbootstrap.com/examples/jumbotron"
+      "url": "http://localhost:63342/web-models/lnigets/reports/report4.html"
     },
     {
       "title": "Report 5",
-      "url": "http://getbootstrap.com/examples/jumbotron-narrow"
+      "url": "http://localhost:63342/web-models/lnigets/reports/report5.html"
     },
     {
       "title": "Report 6",
-      "url": "http://getbootstrap.com/examples/navbar"
+      "url": "http://localhost:63342/web-models/lnigets/reports/report6.html"
     },
     {
       "title": "Report 7",
-      "url": "http://getbootstrap.com/examples/navbar-static-top"
+      "url": "http://localhost:63342/web-models/lnigets/reports/report7.html"
     },
     {
       "title": "Report 8",
-      "url": "http://getbootstrap.com/examples/navbar-fixed-top"
+      "url": "http://localhost:63342/web-models/lnigets/reports/report8.html"
     },
     {
       "title": "Report 9",
-      "url": "http://getbootstrap.com/examples/blog"
+      "url": "http://localhost:63342/web-models/lnigets/reports/report9.html"
     }
   ]
 }

@@ -65,6 +65,12 @@
                                     <input class="form-control" id="lon" />
                                 </div>
                             </div>
+                            <div class="form-group" id="search-div">
+                                <!-- <label for="search" class="col-sm-3 control-label">Lat/Lon </label> -->
+                                <div class="col-sm-12">
+                                    <textarea class="form-control" placeholder="Enter search terms (comma separated)" rows="3"></textarea>
+                                </div>
+                            </div>
                             <div class="form-group text-center">
                                 <div class="col-sm-12">
                                     <button id="run-btn" class="btn btn-default" type="button">Run Model&nbsp;&nbsp;<span class="glyphicon glyphicon-play"></span></button>
@@ -94,9 +100,10 @@
                     <h4 class="modal-title" id="label">Modal title</h4>
                 </div>
                 <div class="modal-body">
-                    <iframe src="http://getbootstrap.com/examples/blog" width="600px" height="500px"></iframe>
+                    <!-- <iframe src="http://getbootstrap.com/examples/blog" width="600px" height="500px"></iframe> -->
+                    <p>Text that will be replaced.</p>
                 </div>
-                <div class="modal-footer">
+                <div class="modal-footer" style="text-align:left;">
                     <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
                 </div>
             </div>
@@ -117,7 +124,6 @@
             $("div#latlon-div").hide();
             $('#model-selector').change(function(){
                 var aoiModels = ['1'];
-                var pointModels = ['2'];
                 if ($.inArray($('#model-selector').val(), aoiModels) != -1) {
                     $("div#radius-div").hide();
                     $("div#latlon-div").hide();
