@@ -10,10 +10,12 @@ var point;
 function runModel1(){
 
     // Verify that some type of geometry has been drawn (point or circle)
+    /*
     if ( (xMin == undefined || xMin == "") && (lat == undefined || lat == "") ) {
         alert('Please use the Draw button to choose an area for your search.');
         return;
     }
+    */
 
     // Set up variables to hold select list values
     var resourceId = $("select#model-selector").val();
@@ -23,14 +25,15 @@ function runModel1(){
     // Set up the url and parameters
     var baseUrl = "http://web-models.com";
     var modelUrl = "?modelUrl=http://web-models.com/resource/" + resourceId;
-    var boundingbox = "&bbox=" + yMin + " " + xMin + " " + yMax + " " + xMax;
-    var manLat = $("input#lat").val();
-    var manLon = $("input#lon").val();
+    //var boundingbox = "&bbox=" + yMin + " " + xMin + " " + yMax + " " + xMax;
+    //var manLat = $("input#lat").val();
+    //var manLon = $("input#lon").val();
 
-    var radius = "&radius=" + radiusVal;
+    //var radius = "&radius=" + radiusVal;
     var timeRange = "&timeRange=" + "[] -P" + numDays + "D";
     var url;
 
+    /*
     if ( geoType == "point" ) {
         console.log("manLat: " + manLat);
         console.log("manLon: " + manLon);
@@ -46,6 +49,7 @@ function runModel1(){
         console.log('No geo type selected.');
         return;
     }
+    */
 
     // Show the results panel with a loading gif
     $(".panel").css("margin-bottom", "0px");
@@ -55,7 +59,7 @@ function runModel1(){
     $("#results").html("<p>Executing model, please wait...</p>");
 
     //rkm - begin testing
-    url = "http://localhost:63342/web-models/lnigets/test-data.json";
+    url = "http://localhost:63342/maps/web-models/lnigets/test-data.json";
 
     // Make the ajax call to execute the model
     $.ajax({
